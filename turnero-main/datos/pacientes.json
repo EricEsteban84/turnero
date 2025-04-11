@@ -1,0 +1,18 @@
+{
+  "usuarios": [
+    {
+      "nombre": "A",
+      "servicio": "Caja"
+    }
+  ],
+  "pacientesLlamados": [
+    {
+      "nombre": "A",
+      "servicio": "Caja 1"
+    },
+    {
+      "nombre": "Paul Manolo",
+      "servicio": "Caja 2"
+    }
+  ]
+}

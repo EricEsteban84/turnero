@@ -1,0 +1,270 @@
+/* ===== ESTILO BASE ===== */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-image: url(https://fondosmil.co/fondo/6760.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#Contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+    padding: 40px;
+    background-color: rgba(1, 82, 173, 0.85);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+#Contenido:hover {
+    transform: scale(1.02);
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.filtro-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+select {
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #4cad97;
+    background-color: #fff;
+    color: #333;
+    width: 60%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+select:focus {
+    outline: none;
+    border-color: #6de4da;
+    box-shadow: 0 0 8px rgba(109, 228, 218, 0.5);
+}
+
+select:hover {
+    border-color: #4cad97;
+    box-shadow: 0 0 8px rgba(76, 173, 151, 0.5);
+}
+
+.my-button {
+    padding: 12px 24px;
+    background-color: #4cad97;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px;
+}
+
+.my-button:hover {
+    background-color: #6de4da;
+    transform: translateY(-2px);
+}
+
+.my-button:active {
+    background-color: #63c7e6;
+    transform: translateY(0);
+}
+
+#lista-usuarios {
+    width: 100%;
+    background-color: white;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-height: 600px;
+    overflow-y: auto;
+    margin-top: 30px;
+    text-align: justify;
+}
+
+.usuario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap;
+}
+
+.usuario:last-child {
+    border-bottom: none;
+}
+
+.usuario p {
+    margin: 0;
+    font-size: 16px;
+    flex: 1;
+    word-wrap: break-word;
+}
+
+.usuario:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.usuario button {
+    padding: 8px 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+.usuario button:hover {
+    background-color: #d32f2f;
+}
+
+.usuario .btn-llamar {
+    background-color: #4caf50;
+}
+
+.usuario .btn-llamar:hover {
+    background-color: #388e3c;
+}
+
+.btn-llamado {
+    background-color: #ffa113;
+    cursor: not-allowed;
+    color: white;
+    opacity: 0.6;
+}
+
+.usuario-llamado {
+    background-color: orange !important;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+}
+
+.logo-inferior {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 300px;
+    opacity: 0.85;
+    z-index: 900;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.logo-inferior:hover {
+    opacity: 1;
+}
+
+/* ====== RESPONSIVE GENERAL ====== */
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+    #Contenido {
+        width: 95%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    select {
+        width: 100%;
+    }
+
+    .usuario {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-inferior {
+        width: 80px;
+    }
+}
+
+/* Tablets en modo retrato */
+@media (min-width: 481px) and (max-width: 768px) {
+    #Contenido {
+        width: 90%;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .usuario p {
+        font-size: 15px;
+    }
+
+    .logo-inferior {
+        width: 100px;
+    }
+}
+
+/* Pantallas medianas (laptops o tablets en modo paisaje) */
+@media (min-width: 769px) and (max-width: 1200px) {
+    #Contenido {
+        width: 85%;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .usuario p {
+        font-size: 17px;
+    }
+
+    .logo-inferior {
+        width: 150px;
+    }
+}
+
+/* Pantallas grandes y televisores */
+@media (min-width: 1201px) {
+    #Contenido {
+        width: 70%;
+        max-width: 1200px;
+        padding: 50px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .usuario p {
+        font-size: 18px;
+    }
+
+    .my-button {
+        font-size: 18px;
+    }
+
+    .logo-inferior {
+        width: 200px;
+    }
+}

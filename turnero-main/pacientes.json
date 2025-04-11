@@ -1,0 +1,29 @@
+{
+  "usuarios": [
+    {
+      "nombre": "Juan Perez",
+      "servicio": "Recepción"
+    },
+    {
+      "nombre": "Paul",
+      "servicio": "Caja"
+    }
+  ],
+  "pacientesLlamados": [
+    {
+      "nombre": "Paul",
+      "servicio": "Recepción",
+      "numero": 3
+    },
+    {
+      "nombre": "Juan Perez",
+      "servicio": "Caja 2",
+      "numero": 2
+    },
+    {
+      "nombre": "Juan Perez",
+      "servicio": "Caja 2",
+      "numero": 1
+    }
+  ]
+}

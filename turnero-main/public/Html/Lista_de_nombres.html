@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista de Pacientes</title>
+  <link rel="stylesheet" href="Css/estiloslista.css" />
+</head>
+<body>
+  <div id="Contenido">
+    <button onclick="mostrarUsuarios()" class="my-button">Refrescar Página</button>
+    <h1>LISTA DE NOMBRES PACIENTES</h1>
+
+    <div class="filtro-container">
+      <label for="filtro"><strong>FILTRAR POR SERVICIO:</strong></label>
+      <select id="filtro" onchange="actualizarFiltroURL()">
+        <option value="Todos">Todos</option>
+        <option value="Recepción">Recepción</option>
+        <option value="Caja 1">Caja 1</option>
+        <option value="Caja 2">Caja 2</option>
+      </select>
+    </div>
+
+    <div id="lista-usuarios">
+      <!-- Aquí se mostrarán los pacientes dinámicamente -->
+    </div>
+  </div>
+
+  <script src="Scripts_Jv/Script_turnero.js"></script>
+  <img src="Images/logo.png" alt="Logo" class="logo-inferior">
+</body>
+</html>

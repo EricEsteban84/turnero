@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnero</title>
+    <link rel="stylesheet" href="../Html/Css/estilosturnero.css">
+</head>
+<body>
+    <div id="Contenido">
+        <div class="encabezado">
+            <h1>Paciente</h1>
+            <h1>Módulo</h1>
+        </div>
+
+        <div id="pacientes-llamados">
+            <!-- Se llena con JavaScript -->
+        </div>
+
+        <img src="../Html/Images/logo.png" alt="Límite visual" class="limite-img">
+    </div>
+
+    <!-- Audio de alerta al llamar nuevo paciente -->
+    <audio id="alerta-audio" src="sonido/sonido.mp3" preload="auto"></audio>
+
+    <script>
+        let pacientesPrevios = [];
+    
+        async function mostrarPacientesLlamados() {
+            try {
+                const response = await fetch('/api/pacientes');
+                const data = await response.json();
+    
+                const contenedorPacientes = document.getElementById('pacientes-llamados');
+                if (!contenedorPacientes) return;
+    
+                const primerosPacientes = data.pacientesLlamados.slice(0, 7);
+    
+                // Leer pacientes ya llamados desde localStorage
+                const llamados = JSON.parse(localStorage.getItem('pacientesLlamados')) || [];
+    
+                // Verificar pacientes nuevos
+                const nuevosDetectados = primerosPacientes.some(p => {
+                    const id = p.nombre + '_' + p.servicio;
+                    return !pacientesPrevios.includes(id);
+                });
+    
+                if (nuevosDetectados) {
+                    const audio = document.getElementById("alerta-audio");
+                    if (audio) {
+                        audio.currentTime = 0;
+                        audio.play().catch(err => console.warn("Error al reproducir audio:", err));
+                    }
+                }
+    
+                pacientesPrevios = primerosPacientes.map(p => p.nombre + '_' + p.servicio);
+    
+                contenedorPacientes.innerHTML = '';
+    
+                primerosPacientes.forEach((paciente, index) => {
+                    const idPaciente = paciente.nombre + '_' + paciente.servicio;
+                    const numero = paciente.numero || '';
+                    const pacienteDiv = document.createElement('div');
+                    pacienteDiv.classList.add('paciente');
+                    if (index === 0) pacienteDiv.classList.add('primer-paciente');
+    
+                    // Si está en llamados, es un segundo llamado
+                    if (llamados.includes(idPaciente)) {
+                        pacienteDiv.classList.add('llamado-doble-turnero');
+                    }
+    
+                    pacienteDiv.innerHTML = `
+                        <div class="columna">${paciente.nombre}</div>
+                        <div class="columna">${paciente.servicio}</div>
+                    `;
+    
+                    contenedorPacientes.appendChild(pacienteDiv);
+                });
+    
+            } catch (error) {
+                console.error("Error al mostrar pacientes llamados:", error);
+            }
+        }
+    
+        mostrarPacientesLlamados();
+        setInterval(mostrarPacientesLlamados, 5000);
+    </script>
+    
+</body>
+</html>
+

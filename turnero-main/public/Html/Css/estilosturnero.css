@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #00b4a2, #d6f9f7);
+    background-size: 200% 200%;
+    animation: fondoAnimado 20s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+@keyframes fondoAnimado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.primer-paciente {
+    background: #b5b5b5 !important; /* Fondo gris claro */
+    color: #a8a8a8 !important;
+}
+
+.primer-paciente .columna {
+    color: #021ba7 !important;
+}
+
+.llamado-doble {
+    background: linear-gradient(135deg, #ff9800, #ffcc80); /* Tonos naranjas */
+    color: #4e342e !important;
+    font-weight: bold;
+    border: 1px solid #ff9800;
+}
+
+
+#Contenido {
+    width: 90%;
+    max-width: 1100px;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(14px);
+    padding: 0px 40px;
+    border-radius: 22px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Encabezado */
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 12px;
+}
+
+.encabezado h1 {
+    flex: 1;
+    text-align: center;
+    font-size: 50px;
+    margin: 0;
+    color: #ffffff;
+    font-weight: 700;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor de pacientes */
+#pacientes-llamados {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#pacientes-llamados::-webkit-scrollbar {
+    width: 8px;
+}
+#pacientes-llamados::-webkit-scrollbar-thumb {
+    background-color: #ffffff99;
+    border-radius: 10px;
+}
+
+/* Tarjeta de paciente */
+.paciente {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #ffffff, #c4f1f9);
+    color: #023e8a;
+    padding: 7px 14px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.paciente:hover {
+    transform: scale(1.015);
+}
+
+.columna {
+    flex: 1;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: #023e8a;
+    word-break: break-word;
+    line-height: 1.1;
+    margin: 0;
+}
+
+/* Imagen decorativa inferior (doble de tamaño) */
+.limite-img {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: auto;
+    display: block;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .encabezado h1 {
+        font-size: 24px;
+    }
+
+    .columna {
+        font-size: 20px;
+    }
+
+    .paciente {
+        flex-direction: column;
+        padding: 16px;
+        gap: 10px;
+        text-align: center;
+    }
+}

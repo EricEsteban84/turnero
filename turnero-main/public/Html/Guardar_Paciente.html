@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacientes</title>
+    <link rel="stylesheet" href="Css/estilos.css">
+</head>
+<body>
+    <div id="Contenido">
+        <div class="Nombre-Turnero">
+            <h1>NOMBRE DEL PACIENTE</h1>
+        </div>
+
+        <input type="text" id="nombre" placeholder="Escribe el nombre del paciente">
+
+        <label for="opciones" class="Servicios">SERVICIO</label>
+        <select id="opciones">
+            <option value="Caja">Caja</option>
+            <option value="Recepción">Recepción</option>
+        </select>
+
+        <button class="my-button" onclick="guardarNombre()">Guardar</button>
+    </div>
+
+    <script src="../Html/Scripts_Jv/Script_turnero.js"></script>
+    <img src="Images/logo.png" alt="Logo" class="logo-inferior">
+</body>
+</html>
